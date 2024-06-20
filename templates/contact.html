@@ -25,14 +25,34 @@
   }
 
   /* Style for fixed logo */
-  .fixed-logos {
-    position: fixed;
-    right: 20px;
-    top: 20px;
-    z-index: 1000;
-    padding: 10px;
-    margin: 10px;
-    cursor: pointer;
+
+  @media (max-width: 575.98px) { 
+    .fixed-logos {
+      position: fixed;
+      right: 5px;
+      bottom: 5px;
+      z-index: 1000;
+      padding: 10px;
+      margin: 10px;
+      cursor: pointer;
+    }
+    .row{
+      margin-top:30px;
+    }
+  }
+
+  
+
+  @media (min-width: 768px) { 
+    .fixed-logos {
+      position: fixed;
+      right: 20px;
+      top: 20px;
+      z-index: 1000;
+      padding: 10px;
+      margin: 10px;
+      cursor: pointer;
+    }
   }
 </style>
 {% endblock stylecss %}

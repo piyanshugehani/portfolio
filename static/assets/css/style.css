@@ -122,6 +122,11 @@ body {
     color: #fff;
     text-decoration: none;
   }
+  #header .profile .social-links a:focus {
+    background: #149ddd;
+    color: #fff;
+    text-decoration: none;
+  }
   
   #main {
     margin-left: 300px;
