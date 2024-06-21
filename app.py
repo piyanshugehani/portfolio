@@ -1,5 +1,3 @@
-import os
-import logging
 from flask import Flask, render_template, redirect, url_for, request, flash, session
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
@@ -10,14 +8,10 @@ from flask_migrate import Migrate
 from sqlalchemy.exc import IntegrityError
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'your_default_secret_key')
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/site.db'
-app.config['DEBUG'] = True  # Enable debugging temporarily
+app.config['SECRET_KEY'] = 'your_secret_key'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
-
-# Setup logging
-logging.basicConfig(level=logging.DEBUG)
 
 class Contact(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -48,6 +42,7 @@ def about():
 def contact():
     form = ContactForm()
     if form.validate_on_submit():
+        # Check if the email already exists
         existing_contact = Contact.query.filter_by(email=form.email.data).first()
         if existing_contact:
             flash('This email is already registered. Please use a different email.', 'danger')
@@ -63,18 +58,13 @@ def contact():
             db.session.add(query)
             db.session.commit()
             flash('Thanks for contacting us. We will get back to you soon!', 'success')
-        except IntegrityError as e:
+        except IntegrityError:
             db.session.rollback()
-            app.logger.error(f"IntegrityError: {e}")
             flash('An error occurred. Please try again.', 'danger')
-        except Exception as e:
-            db.session.rollback()
-            app.logger.error(f"Unexpected error: {e}")
-            flash('An unexpected error occurred. Please try again.', 'danger')
         return redirect(url_for('contact'))
-
+    
     allobj = Contact.query.all()
-    app.logger.debug(f"All contacts: {allobj}")
+    print(allobj)
     return render_template('contact.html', form=form)
 
 @app.route('/blog')
@@ -86,5 +76,4 @@ def internshipdetails():
     return render_template('intern.html')
 
 if __name__ == '__main__':
-    from os import environ
-    app.run(host='0.0.0.0', port=int(environ.get("PORT", 5000)))
+    app.run(debug=True)
