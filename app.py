@@ -1,4 +1,5 @@
 import os
+import logging
 from flask import Flask, render_template, redirect, url_for, request, flash, session
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
@@ -16,7 +17,6 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
 # Setup logging
-import logging
 logging.basicConfig(level=logging.DEBUG)
 
 class Contact(db.Model):
