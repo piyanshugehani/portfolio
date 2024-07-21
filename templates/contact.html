@@ -46,8 +46,8 @@
   @media (min-width: 768px) { 
     .fixed-logos {
       position: fixed;
-      right: 20px;
-      top: 20px;
+      right: 5px;
+      bottom: 5px;
       z-index: 1000;
       padding: 10px;
       margin: 10px;
@@ -60,7 +60,7 @@
 {% block body %}
 
 <a href="https://wa.me/+919967747753" class="fixed-logos">
-  <img height="60" width="60" src="{{ url_for('static', filename='assets/img/logo.png') }}" alt="">
+  <img height="50" width="50" src="{{ url_for('static', filename='assets/img/logo.png') }}" alt="">
 </a>
 
 <div class="container mt-4 p-2" data-aos="flip-right">
@@ -101,7 +101,6 @@
       </div>
     </div>
 
-    <div class="col-md-4"></div>
   </div>
 </div>
 
