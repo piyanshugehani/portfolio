@@ -25,7 +25,7 @@
 </style>
 {% endblock stylecss %}
 {% block body %}
-<section id="skills" style="margin-top: 10px;" data-aos="zoom-out-down">
+<section id="skills" style="margin-top: 10px;" >
   <h2 style="border-bottom: 2px solid #149ddd; color:#149ddd; font-weight:800; font-size:xx-large; padding-bottom:1%;"
     id="container">Skills</h2>
   <div class="skills-section con" id="container">
@@ -117,6 +117,10 @@
         alt="Postman">
       <p>Postman</p>
     </div>
+    <div class="skill-item"><img src="https://th.bing.com/th/id/OIP.uEi-BYi_M-Rnv9abB82xqwHaHa?rs=1&pid=ImgDetMain"
+      alt="Vercel">
+    <p>Vercel</p>
+  </div>
       <div class="skill-item"><img src="https://tse1.mm.bing.net/th?id=OIP.WCymM8HllQ_KltzNeoU11AHaHa&pid=Api&P=0&h=180"
           alt="Heroku">
         <p>Heroku</p>
@@ -128,8 +132,20 @@
   </div>
 </section>
 
-<section id="experience" class="container">
+<section id="experience" class="container" style="margin-top: -3rem;">
   <h2 style="color: #149ddd; border-bottom:2px solid #149ddd; padding-bottom:1%; font-weight:700;">Experience</h2>
+  
+  <div class="experience-item">
+    <h3>KothariTech Pvt Ltd</h3>
+    <p>Position: Lead Web Developer Intern</p>
+    <p>Duration: June 2024 - August 2024</p>
+    <p>Responsibilities:</p>
+    <ul>
+      <li>Developed and delivered a production-ready <a href="https://seller.lofaz.com" target="_blank">seller site</a> using React and Redux within one month.</li>
+      <li>Integrated and displayed API data on the frontend, ensuring seamless communication with the backend.</li>
+      <li>Coordinated with developer interns to ensure smooth project execution and timely delivery.</li>
+    </ul>
+  </div>
   <div class="experience-item">
     <h3>Cognifyz Technologies Pvt Ltd</h3>
     <p>Position: Web Developer Intern</p>
@@ -143,7 +159,6 @@
       <li>Optimized applications for maximum speed and scalability.</li>
     </ul>
   </div>
-
-
 </section>
+
 {% endblock body %}
